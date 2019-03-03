@@ -2,15 +2,11 @@ language: php
 
 php:
   - 7.2
-  - hhvm
+  - 7.3
 
 sudo: required
 
 install: composer install
-
-matrix:
-    allow_failures:
-        - php: hhvm
 
 before_script:
   - composer require php-coveralls/php-coveralls
@@ -22,3 +18,4 @@ script:
 
 after_script:
   - if [[ "$TRAVIS_PHP_VERSION" == '7.2' ]]; then travis_retry php vendor/bin/php-coveralls -v; fi
+  - if [[ "$TRAVIS_PHP_VERSION" == '7.3' ]]; then travis_retry php vendor/bin/php-coveralls -v; fi
