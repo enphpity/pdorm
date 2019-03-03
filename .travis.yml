@@ -1,0 +1,24 @@
+language: php
+
+php:
+  - 7.2
+  - hhvm
+
+sudo: required
+
+install: composer install
+
+matrix:
+    allow_failures:
+        - php: hhvm
+
+before_script:
+  - composer require php-coveralls/php-coveralls
+
+script:
+  - mkdir -p build/logs
+  - vendor/bin/phpunit -c phpunit.xml
+  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+
+after_script:
+  - if [[ "$TRAVIS_PHP_VERSION" == '7.2' ]]; then travis_retry php vendor/bin/php-coveralls -v; fi

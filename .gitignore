@@ -1,0 +1,8 @@
+/vendor
+/build
+composer.phar
+composer.lock
+.DS_Store
+.idea
+.vscode
+.phpunit.result.cache
