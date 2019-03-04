@@ -102,9 +102,11 @@ class Query implements QueryInterface
 
         $sql = "INSERT INTO " . $table . " (" . $cols . ")  VALUES (:" . $values . ")";
 
-        return (int)$this->prepare($sql)
+        $id = $this->prepare($sql)
             ->execute($bind)
             ->getLastInsertId();
+
+        return intval($id);
     }
     public function update($table, array $bind, $where = "")
     {

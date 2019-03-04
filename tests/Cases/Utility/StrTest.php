@@ -5,7 +5,7 @@ namespace Enphpity\Pdorm\Test\Cases\Utility;
 use Enphpity\Pdorm\Utility\Str;
 use PHPUnit\Framework\TestCase;
 
-class SupportStrTest extends TestCase
+class StrTest extends TestCase
 {
     public function testKebab()
     {

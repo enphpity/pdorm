@@ -39,6 +39,19 @@ class Hydrator implements HydratorInterface
      */
     public function extract($object)
     {
+        $reflProperties = $this->getRefectionProperities($object);
+
+        $data = [];
+        foreach ($reflProperties as $property) {
+            $name = $property->getName();
+            $key = Str::snake($name);
+            $value = $property->getValue($object);
+            if (null !== $value) {
+                $data[$key] = $value;
+            }
+        }
+
+        return $data;
     }
 
     protected function getRefectionProperities($object)
