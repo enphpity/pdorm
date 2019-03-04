@@ -7,4 +7,9 @@ class Plan
     protected $id;
 
     public $name;
+
+    public function getId()
+    {
+        return $this->id;
+    }
 }

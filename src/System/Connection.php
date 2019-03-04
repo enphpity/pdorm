@@ -12,7 +12,7 @@ class Connection implements ConnectionInterface
     const DEFAULT = 'default';
 
     protected $config;
-    
+
     protected $connection;
 
     public function __construct($config)
@@ -78,7 +78,7 @@ class Connection implements ConnectionInterface
                 break;
 
             case 'mysql':
-                $dsn = "mysql:host=${$host};dbname={$db}";
+                $dsn = "mysql:host={$host};dbname={$db}";
                 break;
         }
 

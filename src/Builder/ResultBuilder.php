@@ -18,4 +18,17 @@ class ResultBuilder
 
         return $hydrator->hydrate($data, $entity);
     }
+
+    public static function buildCollectionEntity(Mapper $mapper, array $data, HydratorInterface $hydrator)
+    {
+        $collection = [];
+
+        $primaryKey = $mapper->getPrimaryKey();
+
+        foreach ($data as $row => $columns) {
+            $collection[$columns[$primaryKey]] = self::buildSingleEntity($mapper, $columns, $hydrator);
+        }
+
+        return $collection;
+    }
 }
