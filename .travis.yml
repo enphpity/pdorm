@@ -18,7 +18,6 @@ before_script:
   - composer require php-coveralls/php-coveralls
 
 script:
-  - bundle exec rspec
   - mkdir -p build/logs
   - vendor/bin/phpunit -c phpunit.xml
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
