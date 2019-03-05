@@ -1,3 +1,6 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=afd4cade726b0707f46d501c8bec0bc0148ec8ee2c93aa4259e2d4fb9c5bfe65
 language: php
 
 php:
@@ -9,13 +12,18 @@ sudo: required
 install: composer install
 
 before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
   - composer require php-coveralls/php-coveralls
 
 script:
+  - bundle exec rspec
   - mkdir -p build/logs
   - vendor/bin/phpunit -c phpunit.xml
   - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - if [[ "$TRAVIS_PHP_VERSION" == '7.2' ]]; then travis_retry php vendor/bin/php-coveralls -v; fi
   - if [[ "$TRAVIS_PHP_VERSION" == '7.3' ]]; then travis_retry php vendor/bin/php-coveralls -v; fi
