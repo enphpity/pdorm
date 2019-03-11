@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PDORM}</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://enphpity.github.io/pdorm/css/main.css">
+    <link rel="shortcut icon" href="http://enphpity.github.io/pdorm/logo.png" type="image/x-icon">
+</head>
+<body>
+        <a href="https://github.com/enphpity/pdorm">
+        <img style="position: fixed; top: 0; right: 0; border: 0; z-index:1050;"
+            src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+            alt="Fork me on GitHub"
+            data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+    </a>
+        <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                            <img width="50" src="http://enphpity.github.io/pdorm/logo.png">
+                            PDORM
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+                        <div class="col-lg-3 d-md-none d-lg-block d-xl-block">
+                <div class="list-group position-fixed sidebar">
+                                        <a class="list-group-item" href="http://enphpity.github.io/pdorm/">
+                        Home
+                    </a>
+                                        <a class="list-group-item" href="http://enphpity.github.io/pdorm/docs/getting-started.html">
+                        Get started
+                    </a>
+                                        <a class="list-group-item active" href="http://enphpity.github.io/pdorm/docs/contributing.html">
+                        Contributing
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="col-lg-3 d-none d-md-none d-sm-block d-md-block d-lg-none">
+                <div class="list-group">
+                                        <a class="list-group-item"
+                        href="http://enphpity.github.io/pdorm/">
+                        Home
+                    </a>
+                                        <a class="list-group-item"
+                        href="http://enphpity.github.io/pdorm/docs/getting-started.html">
+                        Get started
+                    </a>
+                                        <a class="list-group-item active"
+                        href="http://enphpity.github.io/pdorm/docs/contributing.html">
+                        Contributing
+                    </a>
+                                    </div>
+            </div>
+            
+            <div class="col-lg-9">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 id="contributing">CONTRIBUTING</h1>
+<p>Contributions are welcome, and are accepted via pull requests. Please review these guidelines before submitting any pull requests.</p>
+<h2 id="guidelines">Guidelines</h2>
+<ul>
+<li>Please follow the <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/psr-2-coding-style-guide.html">PSR-2 Coding Standard</a>.</li>
+<li>Ensure that the current tests pass, and if you've added something new, add the tests where relevant.</li>
+<li>Send a coherent commit history, making sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please <a href="http://git-scm.com/book/en/Git-Tools-Rewriting-History">squash</a> them before submitting.</li>
+<li>You may also need to <a href="http://git-scm.com/book/en/Git-Branching-Rebasing">rebase</a> to avoid merge conflicts.</li>
+</ul>
+<h2 id="running-tests">Running Tests</h2>
+<p>You will need an install of <a href="https://getcomposer.org">Composer</a> before continuing.</p>
+<p>First, install the dependencies:</p>
+<pre><code class="language-bash">$ composer install</code></pre>
+<p>Then run phpunit:</p>
+<pre><code class="language-bash">$ vendor/bin/phpunit</code></pre>
+<p>If the test suite passes on your local machine you should be good to go.</p>
+<p>When you make a pull request, the tests will automatically be run again by <a href="https://travis-ci.org/">Travis CI</a> on multiple php.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-3 fixed-bottom bg-white">
+        <div class="container">
+            <p class="m-0 text-center">Copyright &copy; Your Website 2019</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
