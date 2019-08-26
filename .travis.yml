@@ -7,8 +7,6 @@ php:
   - 7.2
   - 7.3
 
-sudo: required
-
 install: composer install
 
 before_script:

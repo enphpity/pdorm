@@ -8,6 +8,8 @@ use RuntimeException;
 
 class ConnectionTest extends TestCase
 {
+    protected $conn;
+
     public function testConstructor()
     {
         $config = [
@@ -15,14 +17,14 @@ class ConnectionTest extends TestCase
             'path' => 'memory',
         ];
 
-        $conn = new Connection($config);
+        $this->conn = new Connection($config);
 
-        $this->assertInstanceOf(Connection::class, $conn);
+        $this->assertInstanceOf(Connection::class, $this->conn);
 
-        $conn->connect();
+        $this->conn->connect();
     }
 
-    public function testConnect()
+    public function testConnectOnIncorrectConfig()
     {
         $config = [
             'driver' => 'mysql',
@@ -32,24 +34,65 @@ class ConnectionTest extends TestCase
             'dbname' => 'testdb',
         ];
 
-        $conn = new Connection($config);
+        $this->conn = new Connection($config);
 
-        $this->assertInstanceOf(Connection::class, $conn);
+        $this->assertInstanceOf(Connection::class, $this->conn);
         $this->expectException(RunTimeException::class);
-        $conn->connect();
+        $this->conn->connect();
+    }
 
-        $conn = null;
-
-        $config2 = [
+    public function testConnectOnCorrectConfig()
+    {
+        $config = [
             'driver' => 'sqlite',
             'path' => 'memory',
         ];
 
-        $conn2 = new Connection($config2);
+        $this->conn = new Connection($config);
 
-        $this->assertInstanceOf(Connection::class, $conn2);
+        $this->assertInstanceOf(Connection::class, $this->conn);
 
-        $conn2->connect();
-        $conn2->disconnect();
+        $this->conn->connect();
+        $this->conn->disconnect();
+    }
+
+    public function testConnectOnDuplicatedConnection()
+    {
+        $config = [
+            'driver' => 'sqlite',
+            'path' => 'memory',
+        ];
+
+        $this->conn = new Connection($config);
+
+        $this->assertInstanceOf(Connection::class, $this->conn);
+
+        $this->conn->connect();
+
+        $this->assertNull($this->conn->connect());
+
+        $this->conn->disconnect();
+    }
+
+    public function testDisconnect()
+    {
+        $config = [
+            'driver' => 'sqlite',
+            'path' => 'memory',
+        ];
+
+        $this->conn = new Connection($config);
+
+        $this->conn->connect();
+        $this->conn->disconnect();
+
+        $this->assertInstanceOf(Connection::class, $this->conn->connect());
+
+        $this->conn->disconnect();
+    }
+
+    protected function tearDown(): void
+    {
+        $this->conn = null;
     }
 }

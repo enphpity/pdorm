@@ -12,32 +12,32 @@ class MapperTest extends BaseCase
 {
     public function testConstructor()
     {
-        $insstnace = new Manager();
+        $instance = new Manager();
 
         $pdo = $this->pdo;
 
-        $insstnace->addConnection($pdo);
+        $instance->addConnection($pdo);
 
         $mapper = new PlanMapper(Plan::class);
 
-        $insstnace->addMapper(Plan::class, $mapper);
+        $instance->addMapper(Plan::class, $mapper);
 
         $this->assertInstanceOf(PlanMapper::class, $mapper);
     }
 
     public function testFind()
     {
-        $insstnace = new Manager();
+        $instance = new Manager();
 
         $pdo = $this->pdo;
 
-        $insstnace->addConnection($pdo);
+        $instance->addConnection($pdo);
 
         $mapper = new PlanMapper(Plan::class);
 
-        $insstnace->addMapper(Plan::class, $mapper);
+        $instance->addMapper(Plan::class, $mapper);
 
-        $mapper = $insstnace->getMapper(Plan::class);
+        $mapper = $instance->getMapper(Plan::class);
 
         $plan = $mapper->find(1);
 
@@ -47,17 +47,17 @@ class MapperTest extends BaseCase
 
     public function testWhere()
     {
-        $insstnace = new Manager();
+        $instance = new Manager();
 
         $pdo = $this->pdo;
 
-        $insstnace->addConnection($pdo);
+        $instance->addConnection($pdo);
 
         $mapper = new PlanMapper(Plan::class);
 
-        $insstnace->addMapper(Plan::class, $mapper);
+        $instance->addMapper(Plan::class, $mapper);
 
-        $mapper = $insstnace->getMapper(Plan::class);
+        $mapper = $instance->getMapper(Plan::class);
 
         $collection = $mapper->where(['id' => 1]);
 
@@ -66,17 +66,17 @@ class MapperTest extends BaseCase
 
     public function testOr()
     {
-        $insstnace = new Manager();
+        $instance = new Manager();
 
         $pdo = $this->pdo;
 
-        $insstnace->addConnection($pdo);
+        $instance->addConnection($pdo);
 
         $mapper = new PlanMapper(Plan::class);
 
-        $insstnace->addMapper(Plan::class, $mapper);
+        $instance->addMapper(Plan::class, $mapper);
 
-        $mapper = $insstnace->getMapper(Plan::class);
+        $mapper = $instance->getMapper(Plan::class);
 
         $collection = $mapper->or(['id' => 1, 'name' => 'intro']);
 
@@ -86,17 +86,17 @@ class MapperTest extends BaseCase
 
     public function testAll()
     {
-        $insstnace = new Manager();
+        $instance = new Manager();
 
         $pdo = $this->pdo;
 
-        $insstnace->addConnection($pdo);
+        $instance->addConnection($pdo);
 
         $mapper = new PlanMapper(Plan::class);
 
-        $insstnace->addMapper(Plan::class, $mapper);
+        $instance->addMapper(Plan::class, $mapper);
 
-        $mapper = $insstnace->getMapper(Plan::class);
+        $mapper = $instance->getMapper(Plan::class);
 
         $collection = $mapper->all();
 
@@ -105,19 +105,19 @@ class MapperTest extends BaseCase
 
     public function testHydrator()
     {
-        $insstnace = new Manager();
+        $instance = new Manager();
 
         $pdo = $this->pdo;
 
-        $insstnace->addConnection($pdo);
+        $instance->addConnection($pdo);
 
         $hydrator = new PlanHydratorProxy();
 
         $mapper = new PlanMapper(Plan::class, null, $hydrator);
 
-        $insstnace->addMapper(Plan::class, $mapper);
+        $instance->addMapper(Plan::class, $mapper);
 
-        $mapper = $insstnace->getMapper(Plan::class);
+        $mapper = $instance->getMapper(Plan::class);
 
         $collection = $mapper->all();
 
@@ -126,17 +126,17 @@ class MapperTest extends BaseCase
 
     public function testStore()
     {
-        $insstnace = new Manager();
+        $instance = new Manager();
 
         $pdo = $this->pdo;
 
-        $insstnace->addConnection($pdo);
+        $instance->addConnection($pdo);
 
         $mapper = new PlanMapper(Plan::class);
 
-        $insstnace->addMapper(Plan::class, $mapper);
+        $instance->addMapper(Plan::class, $mapper);
 
-        $mapper = $insstnace->getMapper(Plan::class);
+        $mapper = $instance->getMapper(Plan::class);
 
         $plan = new Plan();
 
