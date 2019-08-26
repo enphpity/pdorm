@@ -12,63 +12,63 @@ class ManagerTest extends BaseCase
 {
     public function testGetInsstance()
     {
-        $insstnace = Manager::getInstance();
+        $instance = Manager::getInstance();
 
-        $this->assertInstanceOf(Manager::class, $insstnace);
+        $this->assertInstanceOf(Manager::class, $instance);
     }
 
-    public function testConstruct()
+    public function testConstructor()
     {
-        $insstnace = new Manager();
+        $instance = new Manager();
 
-        $this->assertInstanceOf(Manager::class, $insstnace);
+        $this->assertInstanceOf(Manager::class, $instance);
 
-        $insstnace = new Manager($this->pdo);
+        $instance = new Manager($this->pdo);
 
-        $this->assertInstanceOf(Manager::class, $insstnace);
+        $this->assertInstanceOf(Manager::class, $instance);
     }
 
     public function testAddConnection()
     {
-        $insstnace = new Manager();
+        $instance = new Manager();
 
         $pdo = $this->pdo;
 
-        $insstnace->addConnection($pdo);
-        
-        $connection = $insstnace->getConnection();
+        $instance->addConnection($pdo);
+
+        $connection = $instance->getConnection();
 
         $this->assertInstanceOf(Connection::class, $connection);
     }
 
     public function testAddMapper()
     {
-        $insstnace = new Manager();
+        $instance = new Manager();
 
         $pdo = $this->pdo;
 
-        $insstnace->addConnection($pdo);
+        $instance->addConnection($pdo);
 
         $mapper = new PlanMapper(Plan::class);
 
-        $insstnace->addMapper(Plan::class, $mapper);
+        $instance->addMapper(Plan::class, $mapper);
 
         $this->assertInstanceOf(PlanMapper::class, $mapper);
     }
 
     public function testGetdMapper()
     {
-        $insstnace = new Manager();
+        $instance = new Manager();
 
         $pdo = $this->pdo;
 
-        $insstnace->addConnection($pdo);
+        $instance->addConnection($pdo);
 
         $mapper = new PlanMapper(Plan::class);
 
-        $insstnace->addMapper(Plan::class, $mapper);
+        $instance->addMapper(Plan::class, $mapper);
 
-        $mapper = $insstnace->getMapper(Plan::class);
+        $mapper = $instance->getMapper(Plan::class);
 
         $this->assertInstanceOf(PlanMapper::class, $mapper);
     }
